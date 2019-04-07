@@ -12,7 +12,7 @@ mycursor = mydb.cursor()
 #mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))") 
 #For Creating Table 
 
-#mycursor.execute("ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") 
+#mycursor.execute("ALTER TABLE customers ADD COLUMN omar INT  ") 
 #For Adding Column 
 
 
@@ -220,3 +220,5 @@ for x in myresult:
 '''
 
 
+#to changle coloumn name 
+#mycursor.execute("ALTER TABLE sensors Change address value int ")

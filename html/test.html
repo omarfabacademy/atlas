@@ -1,0 +1,165 @@
+
+<html>
+<head>
+
+
+
+    <title>Custom interval</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    body {
+        text-align: center;
+    }
+
+    #g1,
+    #g2,
+    #g3,
+#g4 {
+        width: 200px;
+        height: 160px;
+        display: inline-block;
+        margin: 1em;
+    }
+
+    p {
+        display: block;
+        width: 450px;
+        margin: 2em auto;
+        text-align: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="g1"></div>
+    <div id="g2"></div>
+    <div id="g3"></div>
+    <div id="g4"></div>
+    <p>
+        You need to measure, say, between 350 and 980? No problem, just tell it to justGage. Displayed value and color are calculated as a percentage in defined range, with optional min and max labels shown.
+    </p>
+    <p>
+        Also, if displayed value is out of range, relax and kick your feet up - justGage will take care of it for you.
+    </p>
+    <script src="raphael-2.1.4.min.js"></script>
+    <script src="justgage.js"></script>
+    <script type="text/javascript">
+		
+    var g1, g2, g3 , g4;
+    var s=0;var s1=0;var s2=0;var s3=0;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        g1 = new JustGage({
+            id: "g1",
+            value: getRandomInt(0, 980),
+            min: 0,
+            max: 980,
+            title: "Lone Ranger",
+            label: "miles traveled"
+        });
+
+        g2 = new JustGage({
+            id: "g2",
+            value: 32,
+            min: 50,
+            max: 100,
+            title: "Empty Tank",
+            label: ""
+        });
+
+        g3 = new JustGage({
+            id: "g3",
+            value: 120,
+            min: 50,
+            max: 100,
+            title: "Meltdown",
+            label: ""
+        });
+
+        g4 = new JustGage({
+            id: "g4",
+            value: 120,
+            min: 50,
+            max: 100,
+            title: "Meltdown",
+            label: ""
+        });
+
+        setInterval(function() {
+			var b = 10 ;
+			console.log(b);
+			b = parseInt(showHint());
+			var b1 = parseInt(showHint1());
+			var b2= parseInt(showHint2());
+			var b3 = parseInt(showHint3());
+			console.log(b);
+			console.log("okasha");
+            g1.refresh(s);
+            g2.refresh(s1);
+            g3.refresh(s2);
+			g4.refresh(s3);	
+        }, 2500);
+    });
+    
+    
+function showHint() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                s =  parseInt(this.responseText);
+                console.log(s);
+                return s;
+            }
+        };
+        xmlhttp.open("GET", "gethint.php", true);
+        xmlhttp.send();
+                    
+
+}
+function showHint1() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                s1 =  parseInt(this.responseText);
+                console.log(s1);
+                return s1;
+            }
+        };
+        xmlhttp.open("GET", "gethint1.php", true);
+        xmlhttp.send();
+                    
+
+}
+function showHint2() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                s2 =  parseInt(this.responseText);
+                console.log(s2);
+                return s2;
+            }
+        };
+        xmlhttp.open("GET", "gethint2.php", true);
+        xmlhttp.send();
+                    
+
+}
+function showHint3() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                s3 =  parseInt(this.responseText);
+                console.log(s3);
+                return s3;
+            }
+        };
+        xmlhttp.open("GET", "gethint3.php", true);
+        xmlhttp.send();
+                    
+
+}
+
+    </script>
+</body>
+
+</html>
+
