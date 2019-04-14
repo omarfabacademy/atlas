@@ -26,20 +26,21 @@
         width: 450px;
         margin: 2em auto;
         text-align: left;
+        color: white;
     }
     </style>
 </head>
 
-<body>
+<body bgcolor = "#666666">
     <div id="g1"></div>
     <div id="g2"></div>
     <div id="g3"></div>
     <div id="g4"></div>
     <p>
-        You need to measure, say, between 350 and 980? No problem, just tell it to justGage. Displayed value and color are calculated as a percentage in defined range, with optional min and max labels shown.
+        This is a Live System For Reading the Values of the Farm .
     </p>
     <p>
-        Also, if displayed value is out of range, relax and kick your feet up - justGage will take care of it for you.
+        
     </p>
     <script src="raphael-2.1.4.min.js"></script>
     <script src="justgage.js"></script>
@@ -52,36 +53,36 @@
             id: "g1",
             value: getRandomInt(0, 980),
             min: 0,
-            max: 980,
-            title: "Lone Ranger",
-            label: "miles traveled"
+            max: 60,
+            title: "Temperature",
+            label: "Temperature"
         });
 
         g2 = new JustGage({
             id: "g2",
             value: 32,
-            min: 50,
-            max: 100,
-            title: "Empty Tank",
-            label: ""
+            min: 0,
+            max: 50,
+            title: "Dissolved Oxygen",
+            label: "Dissolved Oxygen"
         });
 
         g3 = new JustGage({
             id: "g3",
             value: 120,
-            min: 50,
-            max: 100,
-            title: "Meltdown",
-            label: ""
+            min: 0,
+            max: 14,
+            title: "PH",
+            label: "PH"
         });
 
         g4 = new JustGage({
             id: "g4",
             value: 120,
-            min: 50,
-            max: 100,
-            title: "Meltdown",
-            label: ""
+            min: -500,
+            max: 500,
+            title: "ORP",
+            label: "ORP"
         });
 
         setInterval(function() {
